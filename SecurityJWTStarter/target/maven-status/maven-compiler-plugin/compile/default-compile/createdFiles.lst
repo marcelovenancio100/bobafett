@@ -1,0 +1,8 @@
+com\security\jwt\starter\Application.class
+com\security\jwt\starter\controllers\Coconuts.class
+com\security\jwt\starter\config\TokenAuthService.class
+com\security\jwt\starter\config\UserCredentials.class
+com\security\jwt\starter\config\JWTAuthFilter.class
+com\security\jwt\starter\config\JWTLoginFilter.class
+com\security\jwt\starter\config\WebSecurityConfig.class
+com\security\jwt\starter\controllers\CoconutsController.class

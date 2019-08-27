@@ -1,0 +1,85 @@
+<div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center">
+    <mat-card fxFlex="100%" fxFlex.gt-xs="100%" class="cp-card">
+        <mat-card-header>
+            <mat-card-title>Cliente</mat-card-title>
+            <mat-card-subtitle>Novo Registro</mat-card-subtitle>
+        </mat-card-header>
+
+        <form #form="ngForm" [formGroup]="formCustomer" (ngSubmit)="submitForm()">
+            <mat-card-content>
+                <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center" fxLayoutGap="32px">
+                    <mat-form-field fxFlex="20">
+                        <input matInput placeholder="Código" formControlName="codigo" required maxlength="10">
+                        <mat-error>Por favor digite o código.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="80">
+                        <input matInput placeholder="Nome" formControlName="nome" required maxlength="100">
+                        <mat-error>Por favor digite o nome.</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center" fxLayoutGap="32px">
+                    <mat-form-field fxFlex="70">
+                        <input matInput placeholder="Email" formControlName="email" required maxlength="100">
+                        <mat-error>Por favor digite o email.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="30">
+                        <input matInput placeholder="Telefone" formControlName="fone" required maxlength="25" mask="(00) 00000-0000">
+                        <mat-error>Por favor digite o telefone.</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center" fxLayoutGap="32px">
+                    <mat-form-field fxFlex="50">
+                        <mat-label>Tipo de Inscrição</mat-label>
+                        <mat-select #ti formControlName="ti" required (selectionChange)="changeMask(ti.value)">
+                            <mat-option [value]="0">CNPJ</mat-option>
+                            <mat-option [value]="1">CPF</mat-option>
+                        </mat-select>
+                        <mat-error>Por favor digite o tipo de inscrição.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="50">
+                        <input matInput placeholder="Número de Inscrição" formControlName="ni" required [mask]="maskNI">
+                        <mat-error>Por favor digite o número de inscrição.</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center" fxLayoutGap="32px">
+                    <mat-form-field fxFlex="80">
+                        <input matInput placeholder="Endereço" formControlName="endereco" maxlength="100">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="20">
+                        <input matInput placeholder="Número" formControlName="numero" maxlength="5">
+                    </mat-form-field>
+                </div>
+                <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center" fxLayoutGap="32px">
+                    <mat-form-field fxFlex="50">
+                        <input matInput placeholder="Bairro" formControlName="bairro" maxlength="50">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="50">
+                        <input matInput placeholder="Município" formControlName="municipio" maxlength="50">
+                    </mat-form-field>
+                </div>
+                <div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center" fxLayoutGap="32px">
+                    <mat-form-field fxFlex="20">
+                        <input matInput placeholder="UF" formControlName="uf" maxlength="2">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="40">
+                        <input matInput [matDatepicker]="picker" placeholder="Data do Cadastro" formControlName="datacad">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="40">
+                        <input matInput placeholder="Score" formControlName="score" mask="00.00">
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <mat-card-actions fxLayoutAlign="center center" fxLayoutGap="6px">
+                <button mat-raised-button color="primary" [disabled]="!form.valid">Salvar</button>
+                <button mat-raised-button color="secondary" (click)="toBack()">Voltar</button>
+            </mat-card-actions>
+        </form>
+
+        <mat-card-footer fxLayoutAlign="start center">
+
+        </mat-card-footer>
+    </mat-card>
+</div>

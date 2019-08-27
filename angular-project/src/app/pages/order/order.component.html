@@ -1,0 +1,23 @@
+<div fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="center center">
+    <mat-card fxFlex="100%" fxFlex.gt-xs="100%" class="cp-card">
+        <mat-card-header>
+            <mat-card-title>Pedido</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            
+        </mat-card-content>
+
+        <mat-card-actions fxLayoutAlign="center center" fxLayoutGap="6px">
+            <button mat-raised-button color="secondary" *canAccess="['new', 'submit']">Gerar pedido</button>
+            <button mat-raised-button color="secondary" *canAccess="['awaitingApproval', 'approve']">Aprovar pedido</button>
+            <button mat-raised-button color="secondary" *canAccess="['approved', 'separate']">Separar pedido</button>
+            <button mat-raised-button color="secondary" *canAccess="['separated', 'send']">Enviar pedido</button>
+            <button mat-raised-button color="secondary" *canAccess="['separated', 'cancel']">Cancelar pedido</button>
+        </mat-card-actions>
+
+        <mat-card-footer fxLayoutAlign="start center">
+
+        </mat-card-footer>
+    </mat-card>
+</div>

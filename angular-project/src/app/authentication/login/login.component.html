@@ -1,0 +1,41 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="cp-card">
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+            <mat-card-subtitle>Informe os dados para acesso.</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+            <form [formGroup]="formLogin" #form="ngForm">
+                <div fxFlex="auto" fxLayout="column" fxLayoutGap="8px">
+                    <mat-form-field fxFlex="grow">
+                        <input matInput placeholder="Usuário" formControlName="username" name="username" required>
+                        <mat-error>Por favor digite o usuário.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field fxFlex="grow">
+                        <input matInput placeholder="Senha" formControlName="password" type="password" name="password" required>
+                        <mat-error>Por favor digite a senha.</mat-error>
+                    </mat-form-field>
+                </div>
+            </form>
+            <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner><br />
+
+            <div fxLayoutAlign="space-between center">
+                <mat-checkbox color="primary">Permanecer conectado</mat-checkbox>
+                <a [routerLink]="['/request-password']">Esqueceu a senha?</a>
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions fxLayoutAlign="center center">
+            <button mat-raised-button (click)="login()" color="primary"
+                [disabled]="submitted || !form.valid">Acessar</button>
+        </mat-card-actions>
+        
+        <mat-card-footer fxLayoutAlign="center center">
+            <p class="cp-text-footer">
+                Primeiro acesso?
+                <a [routerLink]="['/register-user']"> Registre-se</a>
+            </p>
+        </mat-card-footer>
+    </mat-card>
+</div>
